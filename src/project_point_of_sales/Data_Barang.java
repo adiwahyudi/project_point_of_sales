@@ -2,6 +2,8 @@
 package project_point_of_sales;
 
 import java.sql.*;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Data_Barang {
@@ -64,7 +66,7 @@ public class Data_Barang {
             System.out.println(sqle);
         }
     }
-    
+
     public void displayDataBarang(){
 //        System.out.println("ID Barang           :" + this.id_Barang);
         System.out.println("Nama Barang         :" + this.nama_Barang);
