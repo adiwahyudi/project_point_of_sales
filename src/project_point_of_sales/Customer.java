@@ -43,6 +43,8 @@ public class Customer {
     }
      
     public void make_invoice(){
-           
+        System.out.println("ID Customer         :" + this.id_customer);
+        System.out.println("Username            :" + this.username);
+        System.out.println("Alamat              :" + this.alamat);
     }
 }
