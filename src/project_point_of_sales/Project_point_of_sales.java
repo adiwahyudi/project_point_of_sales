@@ -18,7 +18,7 @@ public class Project_point_of_sales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Frame_InputDataBarang jFrame = new Frame_InputDataBarang() ;
+        Frame_DetailBelanja jFrame = new Frame_DetailBelanja() ;
         jFrame.setVisible(true);
     }
     
