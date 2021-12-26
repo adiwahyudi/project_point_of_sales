@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package project_point_of_sales;
+
+import GUI.Frame_DetailBelanja;
 import GUI.Frame_InputDataBarang;
+
 /**
  *
  * @author User
@@ -15,8 +18,7 @@ public class Project_point_of_sales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Frame_InputDataBarang jFrame = new Frame_InputDataBarang() ;
+        Frame_DetailBelanja jFrame = new Frame_DetailBelanja() ;
         jFrame.setVisible(true);
     }
     
