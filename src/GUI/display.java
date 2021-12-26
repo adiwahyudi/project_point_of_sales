@@ -77,6 +77,7 @@ public class display {
             
         }catch(SQLException sqle){
             System.out.println(sqle);
+            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
         }
     }
 }
