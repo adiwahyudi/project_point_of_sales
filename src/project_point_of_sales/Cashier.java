@@ -27,6 +27,6 @@ public class Cashier {
     }
     
     public void process_payment(float a){
-    
+        
     }
 }
