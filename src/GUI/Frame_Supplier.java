@@ -30,11 +30,9 @@ public class Frame_Supplier extends javax.swing.JFrame {
         txt_nohp = new javax.swing.JTextField();
         txt_alamat = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        label_id = new javax.swing.JLabel();
         label_nama = new javax.swing.JLabel();
         label_nohp = new javax.swing.JLabel();
         label_alamat = new javax.swing.JLabel();
-        txt_id = new javax.swing.JTextField();
         txt_nama = new javax.swing.JTextField();
         simpan_btn = new javax.swing.JButton();
 
@@ -48,19 +46,11 @@ public class Frame_Supplier extends javax.swing.JFrame {
 
         jLabel1.setText("Input Informasi Supplier");
 
-        label_id.setText("ID ");
-
         label_nama.setText("Nama");
 
         label_nohp.setText("No. HP");
 
         label_alamat.setText("Alamat");
-
-        txt_id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_idActionPerformed(evt);
-            }
-        });
 
         simpan_btn.setText("Simpan");
         simpan_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -78,14 +68,12 @@ public class Frame_Supplier extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_nohp)
                     .addComponent(label_nama)
-                    .addComponent(label_alamat)
-                    .addComponent(label_id))
+                    .addComponent(label_alamat))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(txt_nama, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                     .addComponent(txt_nohp, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_alamat, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_id))
+                    .addComponent(txt_alamat, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(221, 221, 221)
@@ -101,11 +89,7 @@ public class Frame_Supplier extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_id)
-                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_nama)
                     .addComponent(txt_nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -119,7 +103,7 @@ public class Frame_Supplier extends javax.swing.JFrame {
                     .addComponent(txt_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(simpan_btn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,10 +112,6 @@ public class Frame_Supplier extends javax.swing.JFrame {
     private void txt_alamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_alamatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_alamatActionPerformed
-
-    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_idActionPerformed
 
     private void simpan_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpan_btnActionPerformed
         // TODO add your handling code here:
@@ -175,12 +155,10 @@ public class Frame_Supplier extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel label_alamat;
-    private javax.swing.JLabel label_id;
     private javax.swing.JLabel label_nama;
     private javax.swing.JLabel label_nohp;
     private javax.swing.JButton simpan_btn;
     private javax.swing.JTextField txt_alamat;
-    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_nohp;
     // End of variables declaration//GEN-END:variables
