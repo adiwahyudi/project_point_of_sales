@@ -35,6 +35,7 @@ public class Frame_DataBarang extends javax.swing.JFrame {
         tab_dataBarang1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         Refresh = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,8 @@ public class Frame_DataBarang extends javax.swing.JFrame {
             }
         });
 
+        Update.setText("Delete");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,7 +80,9 @@ public class Frame_DataBarang extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Refresh)
-                        .addGap(18, 18, 18)
+                        .addGap(13, 13, 13)
+                        .addComponent(Update)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -92,7 +97,8 @@ public class Frame_DataBarang extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(Refresh))
+                    .addComponent(Refresh)
+                    .addComponent(Update))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -146,6 +152,7 @@ public class Frame_DataBarang extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Refresh;
+    private javax.swing.JButton Update;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane3;
