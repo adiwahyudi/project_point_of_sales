@@ -5,6 +5,7 @@
  */
 package project_point_of_sales;
 
+import GUI.Frame_DataBarang;
 import GUI.Frame_DetailBelanja;
 import GUI.Frame_InputDataBarang;
 

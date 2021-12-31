@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import java.awt.event.*;
+import javax.swing.JFrame;
 import project_point_of_sales.Data_Barang;
 
 /**
@@ -18,6 +20,8 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
      */
     public Frame_InputDataBarang() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -129,7 +133,8 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
             inp_kategori.setText("");
             inp_hargaJual.setText("");
             inp_hargaBeli.setText("");
-        }
+        }    
+        
     }//GEN-LAST:event_simpanActionPerformed
 
     /**
