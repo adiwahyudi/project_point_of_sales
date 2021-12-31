@@ -31,8 +31,8 @@ public class display {
                 String nama_Produk = rs.getString("nama_Barang");
                 String kategori = rs.getString("kategori");
                 String harga_Jual = String.valueOf(rs.getInt("harga_jual"));
-                
-                String tbData[] = {id,nama_Produk,kategori,harga_Jual};
+                String harga_Beli = String.valueOf(rs.getInt("harga_beli"));
+                String tbData[] = {id,nama_Produk,kategori,harga_Jual,harga_Beli};
                 
                 tblModel.addRow(tbData);
             }
@@ -55,8 +55,9 @@ public class display {
                 String nama_Produk = rs.getString("nama_Barang");
                 String kategori = rs.getString("kategori");
                 String harga_Jual = String.valueOf(rs.getInt("harga_jual"));
+                String jumlah_Item = String.valueOf(rs.getInt("jumlah_item"));
                 
-                String tbData[] = {id,nama_Produk,kategori,harga_Jual};
+                String tbData[] = {id,nama_Produk,kategori,harga_Jual,jumlah_Item};
                 
                 tblModel.addRow(tbData);
             }
@@ -66,13 +67,14 @@ public class display {
         }
     }
     
-    public void add_Keranjang(String id, String nama,String kategori, String hargaJ){
+    public void add_Keranjang(String id, String nama,String kategori, String hargaJ, String jumlahB){
         
         try{
             int idB = Integer.parseInt(id);
             int hargaJual = Integer.parseInt(hargaJ);
+            int jumlah = Integer.parseInt(jumlahB);
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
-            String sql = "INSERT INTO data_detailbelanja VALUES ('"+idB+"','"+nama+"','"+kategori+"',"+hargaJual+")";
+            String sql = "INSERT INTO data_detailbelanja VALUES ('"+idB+"','"+nama+"','"+kategori+"',"+hargaJual+","+jumlah+")";
             stmt.executeUpdate(sql);
             
         }catch(SQLException sqle){

@@ -5,6 +5,7 @@
  */
 package project_point_of_sales;
 
+import GUI.Frame_DataBarang;
 import GUI.Frame_DetailBelanja;
 import GUI.Frame_InputDataBarang;
 
@@ -18,7 +19,7 @@ public class Project_point_of_sales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Frame_DetailBelanja jFrame = new Frame_DetailBelanja() ;
+        Frame_DataBarang jFrame = new Frame_DataBarang() ;
         jFrame.setVisible(true);
     }
     
