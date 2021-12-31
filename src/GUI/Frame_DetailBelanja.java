@@ -89,7 +89,7 @@ public class Frame_DetailBelanja extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "nama_Produk", "kategori", "harga_Jual", "Jumlah"
+                "id", "nama_Produk", "kategori", "harga_Jual", "Jumlah", "Total Harga"
             }
         ));
         jScrollPane2.setViewportView(tab_detailBelanja);

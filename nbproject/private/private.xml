@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ASUS/Documents/GitHub/project_point_of_sales/src/project_point_of_sales/Project_point_of_sales.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/project_point_of_sales/src/project_point_of_sales/koneksi.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/project_point_of_sales/src/project_point_of_sales/Data_Barang.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/project_point_of_sales/src/GUI/Frame_DetailBelanja.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/project_point_of_sales/src/GUI/Frame_InputDataBarang.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/project_point_of_sales/src/GUI/display.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/project_point_of_sales/src/GUI/Frame_DataBarang.java</file>
         </group>
     </open-files>
 </project-private>
