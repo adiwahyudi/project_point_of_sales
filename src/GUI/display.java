@@ -83,4 +83,5 @@ public class display {
             JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
         }
     }
+    
 }
