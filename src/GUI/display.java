@@ -101,4 +101,18 @@ public class display {
         }
     }
     
+    public void delete_Keranjang(String id){
+        
+        try{
+            int idB = Integer.parseInt(id);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "DELETE FROM data_detailbelanja WHERE id_barang ='"+idB+"'";
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"item telah dihapus");
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
+        }
+    }
+    
 }
