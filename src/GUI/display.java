@@ -84,4 +84,21 @@ public class display {
         }
     }
     
+    public void update_Keranjang(String id,String hargaJ, String jumlahB){
+        
+        try{
+            int idB = Integer.parseInt(id);
+            int hargaJual = Integer.parseInt(hargaJ);
+            int jumlah = Integer.parseInt(jumlahB);
+            int total = hargaJual*jumlah;
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "UPDATE data_detailbelanja SET jumlah_item = "+jumlah+",harga_Total ="+total+" WHERE id_barang ='"+idB+"'";
+            stmt.executeUpdate(sql);
+            
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
+        }
+    }
+    
 }

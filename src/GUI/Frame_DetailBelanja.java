@@ -105,6 +105,11 @@ public class Frame_DetailBelanja extends javax.swing.JFrame {
                 "id", "nama_Produk", "kategori", "harga_Jual", "Jumlah", "Harga"
             }
         ));
+        tab_detailBelanja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab_detailBelanjaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tab_detailBelanja);
 
         jLabel3.setText("ID Barang");
@@ -221,12 +226,21 @@ public class Frame_DetailBelanja extends javax.swing.JFrame {
 
     private void add_keranjangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_keranjangActionPerformed
         // TODO add your handling code here:
-        dis.add_Keranjang(inp_id.getText(), inp_namaBarang.getText(), inp_kategori.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
-        dis.Display_detailBelanja(tab_detailBelanja);
+        if(add_keranjang.getText() == "Tambah ke keranjang"){
+            dis.add_Keranjang(inp_id.getText(), inp_namaBarang.getText(), inp_kategori.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
+            dis.Display_detailBelanja(tab_detailBelanja);
+            Tsum.setText(Integer.toString(getSumHarga()));
+        }else if (add_keranjang.getText() == "Update keranjang"){
+            dis.update_Keranjang(inp_id.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
+            dis.Display_detailBelanja(tab_detailBelanja);
+            Tsum.setText(Integer.toString(getSumHarga()));
+        }
+        
     }//GEN-LAST:event_add_keranjangActionPerformed
 
     private void tab_dataBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_dataBarangMouseClicked
         // TODO add your handling code here:
+        add_keranjang.setText("Tambah ke keranjang");
         DefaultTableModel tblModel = (DefaultTableModel) tab_dataBarang.getModel();
         
         String tbl_ID = (String) tblModel.getValueAt(tab_dataBarang.getSelectedRow(),0);
@@ -238,7 +252,26 @@ public class Frame_DetailBelanja extends javax.swing.JFrame {
         inp_namaBarang.setText(tbl_namaProduk);
         inp_kategori.setText(tbl_kategori);   
         inp_hargaJual.setText(tbl_hargaJual);
+        inp_jumlah.setText("");
     }//GEN-LAST:event_tab_dataBarangMouseClicked
+
+    private void tab_detailBelanjaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_detailBelanjaMouseClicked
+        // TODO add your handling code here:
+        add_keranjang.setText("Update keranjang");
+        DefaultTableModel tblModel = (DefaultTableModel) tab_detailBelanja.getModel();
+        
+        String tbl_ID = (String) tblModel.getValueAt(tab_detailBelanja.getSelectedRow(),0);
+        String tbl_namaProduk = (String) tblModel.getValueAt(tab_detailBelanja.getSelectedRow(),1);
+        String tbl_kategori = (String) tblModel.getValueAt(tab_detailBelanja.getSelectedRow(),2);
+        String tbl_hargaJual = (String) tblModel.getValueAt(tab_detailBelanja.getSelectedRow(),3);
+        String tbl_total = (String) tblModel.getValueAt(tab_detailBelanja.getSelectedRow(),4);
+        
+        inp_id.setText(tbl_ID);
+        inp_namaBarang.setText(tbl_namaProduk);
+        inp_kategori.setText(tbl_kategori);   
+        inp_hargaJual.setText(tbl_hargaJual);
+        inp_jumlah.setText(tbl_total);
+    }//GEN-LAST:event_tab_detailBelanjaMouseClicked
 
     /**
      * @param args the command line arguments
