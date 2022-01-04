@@ -43,6 +43,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
         inp_hargaJual = new javax.swing.JTextField();
         inp_hargaBeli = new javax.swing.JTextField();
         simpan = new javax.swing.JButton();
+        display_Barang = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +64,13 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
             }
         });
 
+        display_Barang.setText("Display Data Barang");
+        display_Barang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                display_BarangActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,7 +82,10 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(simpan)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(display_Barang)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(simpan))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel3)
@@ -113,7 +124,9 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(inp_hargaBeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(simpan)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simpan)
+                    .addComponent(display_Barang))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
@@ -136,6 +149,12 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
         }    
         
     }//GEN-LAST:event_simpanActionPerformed
+
+    private void display_BarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_display_BarangActionPerformed
+        // TODO add your handling code here:
+        Frame_DataBarang frame = new Frame_DataBarang();
+        frame.setVisible(true);
+    }//GEN-LAST:event_display_BarangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +192,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton display_Barang;
     private javax.swing.JTextField inp_hargaBeli;
     private javax.swing.JTextField inp_hargaJual;
     private javax.swing.JTextField inp_kategori;
