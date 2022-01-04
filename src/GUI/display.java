@@ -77,7 +77,7 @@ public class display {
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
             String sql = "INSERT INTO data_detailbelanja VALUES ('"+idB+"','"+nama+"','"+kategori+"',"+hargaJual+","+jumlah+","+total+")";
             stmt.executeUpdate(sql);
-            
+            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
         }catch(SQLException sqle){
             System.out.println(sqle);
             JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
@@ -94,7 +94,7 @@ public class display {
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
             String sql = "UPDATE data_detailbelanja SET jumlah_item = "+jumlah+",harga_Total ="+total+" WHERE id_barang ='"+idB+"'";
             stmt.executeUpdate(sql);
-            
+            JOptionPane.showMessageDialog(null,"item sudah diupdate");
         }catch(SQLException sqle){
             System.out.println(sqle);
             JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
@@ -109,6 +109,38 @@ public class display {
             String sql = "DELETE FROM data_detailbelanja WHERE id_barang ='"+idB+"'";
             stmt.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"item telah dihapus");
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
+        }
+    }
+    
+    
+    public void delete_Barang(String id){
+        
+        try{
+            int idB = Integer.parseInt(id);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "DELETE FROM data_barang WHERE id_barang ='"+idB+"'";
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"item telah dihapus");
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
+        }
+    }
+    
+    
+    public void update_Barang(String id, String hargaJ, String jumlahB){
+        
+        try{
+            int idB = Integer.parseInt(id);
+            int hargaJual = Integer.parseInt(hargaJ);
+            int hargaBeli = Integer.parseInt(jumlahB);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "UPDATE data_barang SET harga_jual = "+hargaJual+",harga_beli ="+hargaBeli+" WHERE id_barang ='"+idB+"'";
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"item sudah diupdate");
         }catch(SQLException sqle){
             System.out.println(sqle);
             JOptionPane.showMessageDialog(null,"item sudah dimasukkan");

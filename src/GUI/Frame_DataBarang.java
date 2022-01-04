@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -19,6 +22,11 @@ public class Frame_DataBarang extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         dis.Display_dataBarang(tab_dataBarang1);
+        inp_id.setEnabled(false);
+        inp_namaBarang.setEnabled(false);
+        inp_kategori.setEnabled(false);
+        this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -33,9 +41,18 @@ public class Frame_DataBarang extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tab_dataBarang1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        Refresh = new javax.swing.JButton();
         Update = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        inp_id = new javax.swing.JTextField();
+        inp_kategori = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        inp_hargaJual = new javax.swing.JTextField();
+        inp_namaBarang = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        inp_hargaBeli = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,74 +63,151 @@ public class Frame_DataBarang extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "nama_Produk", "kategori", "harga_Jual"
+                "id", "nama_Produk", "kategori", "harga_Jual","harga_beli"
             }
-        ));
-        jScrollPane3.setViewportView(tab_dataBarang1);
-
-        jButton1.setText("Add item");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        )
+        {
+            public boolean isCellEditable(int row,int column){
+                return false;
             }
-        });
+        }
+    );
+    tab_dataBarang1.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            tab_dataBarang1MouseClicked(evt);
+        }
+    });
+    jScrollPane3.setViewportView(tab_dataBarang1);
 
-        Refresh.setText("Refresh");
-        Refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RefreshActionPerformed(evt);
-            }
-        });
+    Update.setText("Update");
+    Update.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            UpdateActionPerformed(evt);
+        }
+    });
 
-        Update.setText("Delete");
+    delete.setText("Delete");
+    delete.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            deleteActionPerformed(evt);
+        }
+    });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Refresh)
-                        .addGap(13, 13, 13)
+    jLabel3.setText("ID Barang");
+
+    jLabel5.setText("Kategori");
+
+    jLabel6.setText("Harga Jual");
+
+    jLabel4.setText("Nama Barang");
+
+    jLabel7.setText("Harga Beli");
+
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(221, 221, 221)
+                    .addComponent(jLabel8))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(28, 28, 28)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(inp_hargaJual)
+                                .addComponent(inp_id)
+                                .addComponent(inp_namaBarang)
+                                .addComponent(inp_kategori)
+                                .addComponent(inp_hargaBeli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                            .addComponent(Update)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(delete)))))
+            .addContainerGap(11, Short.MAX_VALUE))
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGap(24, 24, 24)
+            .addComponent(jLabel8)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(inp_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(inp_namaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(inp_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(inp_hargaJual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(inp_hargaBeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Update)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(224, 224, 224))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(Refresh)
-                    .addComponent(Update))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+                        .addComponent(delete)))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(36, Short.MAX_VALUE))
+    );
 
-        pack();
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Frame_InputDataBarang input = new Frame_InputDataBarang();
-        input.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
+        dis.update_Barang(inp_id.getText(), inp_hargaJual.getText(), inp_hargaBeli.getText());
         dis.Display_dataBarang(tab_dataBarang1);
-    }//GEN-LAST:event_RefreshActionPerformed
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void tab_dataBarang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_dataBarang1MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel tblModel = (DefaultTableModel) tab_dataBarang1.getModel();
+        
+        String tbl_ID = (String) tblModel.getValueAt(tab_dataBarang1.getSelectedRow(),0);
+        String tbl_namaProduk = (String) tblModel.getValueAt(tab_dataBarang1.getSelectedRow(),1);
+        String tbl_kategori = (String) tblModel.getValueAt(tab_dataBarang1.getSelectedRow(),2);
+        String tbl_hargaJual = (String) tblModel.getValueAt(tab_dataBarang1.getSelectedRow(),3);
+        String tbl_hargaBeli = (String) tblModel.getValueAt(tab_dataBarang1.getSelectedRow(),4);
+        inp_id.setText(tbl_ID);
+        inp_namaBarang.setText(tbl_namaProduk);
+        inp_kategori.setText(tbl_kategori);   
+        inp_hargaJual.setText(tbl_hargaJual);
+        inp_hargaBeli.setText(tbl_hargaBeli);
+    }//GEN-LAST:event_tab_dataBarang1MouseClicked
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        dis.delete_Barang(inp_id.getText());
+        dis.Display_detailBelanja(tab_dataBarang1);
+        inp_id.setText("");
+        inp_namaBarang.setText("");
+        inp_kategori.setText("");
+        inp_hargaJual.setText("");
+    }//GEN-LAST:event_deleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,9 +245,18 @@ public class Frame_DataBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Refresh;
     private javax.swing.JButton Update;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton delete;
+    private javax.swing.JTextField inp_hargaBeli;
+    private javax.swing.JTextField inp_hargaJual;
+    private javax.swing.JTextField inp_id;
+    private javax.swing.JTextField inp_kategori;
+    private javax.swing.JTextField inp_namaBarang;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tab_dataBarang1;
