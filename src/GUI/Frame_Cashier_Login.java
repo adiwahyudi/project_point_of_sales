@@ -14,6 +14,7 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
     /**
      * Creates new form Frame_Cashier_Login
      */
+    display dis = new display();
     public Frame_Cashier_Login() {
         initComponents();
     }
@@ -27,13 +28,14 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         label_login_page = new javax.swing.JLabel();
         label_username = new javax.swing.JLabel();
         label_password = new javax.swing.JLabel();
         val_username = new javax.swing.JTextField();
-        val_password = new javax.swing.JTextField();
         button_login = new javax.swing.JButton();
         button_back = new javax.swing.JButton();
+        val_password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,12 +49,6 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
         val_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 val_usernameActionPerformed(evt);
-            }
-        });
-
-        val_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                val_passwordActionPerformed(evt);
             }
         });
 
@@ -71,6 +67,12 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
             }
         });
 
+        val_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                val_passwordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,8 +84,8 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
                     .addComponent(label_username))
                 .addGap(162, 162, 162)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(val_username)
-                    .addComponent(val_password, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                    .addComponent(val_username, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(val_password))
                 .addGap(144, 144, 144))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -118,23 +120,28 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
         // TODO add your handling code here:
+        String new_uname = val_username.getText();
+        String new_pw = new String(val_password.getPassword());
+        dis.cashier_login(new_uname, new_pw);
+        System.out.println();
     }//GEN-LAST:event_button_loginActionPerformed
 
     private void val_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_val_usernameActionPerformed
 
-    private void val_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_val_passwordActionPerformed
-
     private void button_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_backActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_backActionPerformed
+
+    private void val_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_val_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,10 +181,11 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_back;
     private javax.swing.JButton button_login;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label_login_page;
     private javax.swing.JLabel label_password;
     private javax.swing.JLabel label_username;
-    private javax.swing.JTextField val_password;
+    private javax.swing.JPasswordField val_password;
     private javax.swing.JTextField val_username;
     // End of variables declaration//GEN-END:variables
 }

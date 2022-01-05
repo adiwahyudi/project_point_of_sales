@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class koneksi {
     private String driver = "com.mysql.cj.jdbc.Driver";
-    private String host = "jdbc:mysql://localhost:3306/data_barang";
+    private String host = "jdbc:mysql://localhost:3306/pos_db";
     private String user = "root";
     private String pass = "";
     private Connection koneksi;
