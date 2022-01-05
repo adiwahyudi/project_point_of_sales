@@ -17,6 +17,7 @@ import project_point_of_sales.koneksi;
 public class display {
     koneksi kn = new koneksi();
     Connection kon = kn.getKoneksi();
+    int id_cashier;
     
     public void Display_dataBarang(JTable jtable){
         
@@ -144,6 +145,26 @@ public class display {
         }catch(SQLException sqle){
             System.out.println(sqle);
             JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
+        }
+    }
+    
+    public void cashier_login(String username,String password) {
+        try {
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "SELECT * FROM cashier WHERE username ='"+username+"' AND password='"+password+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+//                System.out.println("ini rs.next+rs.next());
+                if(username.equals(rs.getString("username")) && password.equals(rs.getString("password"))){
+                    id_cashier = rs.getInt("id");
+                    JOptionPane.showMessageDialog(null,"Login Berhasil");
+//                    new GUI.Frame_Cashier_Menu().setVisible(false);
+                }
+            }else {
+                JOptionPane.showMessageDialog(null,"Username atau Passsword salah");
+            }
+        } catch (SQLException sqle) {
+            JOptionPane.showMessageDialog(null,sqle.getMessage());
         }
     }
     
