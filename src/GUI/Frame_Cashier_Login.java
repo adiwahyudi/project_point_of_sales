@@ -127,8 +127,10 @@ public class Frame_Cashier_Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String new_uname = val_username.getText();
         String new_pw = new String(val_password.getPassword());
-        dis.cashier_login(new_uname, new_pw);
-        System.out.println();
+        boolean status = dis.cashier_login(new_uname, new_pw);
+        if (status) {
+            this.dispose();
+        }
     }//GEN-LAST:event_button_loginActionPerformed
 
     private void val_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_usernameActionPerformed

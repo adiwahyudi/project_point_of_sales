@@ -56,7 +56,6 @@ public class Frame_Awal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_selamat_datang, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
                         .addComponent(button_login_cashier, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(125, 125, 125))
                     .addGroup(layout.createSequentialGroup()
@@ -78,10 +77,13 @@ public class Frame_Awal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_login_cashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_login_cashierActionPerformed
         // TODO add your handling code here:
+        new Frame_Cashier_Login().setVisible(true);                                                             
+        this.dispose();
     }//GEN-LAST:event_button_login_cashierActionPerformed
 
     /**

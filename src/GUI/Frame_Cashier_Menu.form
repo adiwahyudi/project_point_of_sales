@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -24,42 +24,85 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="label_kode" max="32767" attributes="0"/>
+                          <Component id="lavel_nama" alignment="1" pref="49" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="cashier_kode" pref="181" max="32767" attributes="0"/>
+                          <Component id="cashier_nama" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       <Component id="button_logout" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                      <Component id="button_add_member" min="-2" pref="107" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                      <Component id="button_trans" min="-2" pref="111" max="-2" attributes="0"/>
-                      <EmptySpace pref="164" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="551" max="-2" attributes="0"/>
                       <Component id="button_input_barang" min="-2" pref="106" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="412" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="button_add_member1" min="-2" pref="107" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                      <Component id="button_trans" min="-2" pref="111" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="button_list_member" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="button_trans1" min="-2" pref="111" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="387" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="416" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="button_add_member" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="button_trans" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="button_input_barang" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="button_add_member1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="211" max="32767" attributes="0"/>
-              <Component id="button_logout" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="button_list_member" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="button_trans1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="127" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="cashier_nama" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="lavel_nama" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cashier_kode" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="button_logout" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="label_kode" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -74,9 +117,9 @@
         <Property name="text" type="java.lang.String" value="MENU"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="button_add_member">
+    <Component class="javax.swing.JButton" name="button_list_member">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add Member"/>
+        <Property name="text" type="java.lang.String" value="List Member"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
@@ -99,6 +142,45 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="LOGOUT"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_add_member1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add Member"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_add_member1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_trans1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="History Transaksi"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lavel_nama">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nama"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_kode">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kode"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cashier_nama">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="13" style="1"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cashier_kode">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="13" style="1"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

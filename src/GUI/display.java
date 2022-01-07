@@ -5,10 +5,14 @@
  */
 package GUI;
 
+import java.awt.List;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import project_point_of_sales.koneksi;
+import project_point_of_sales.Cashier;
+import java.util.*;
 
 /**
  *
@@ -17,7 +21,7 @@ import project_point_of_sales.koneksi;
 public class display {
     koneksi kn = new koneksi();
     Connection kon = kn.getKoneksi();
-    int id_cashier;
+    
     
     public void Display_dataBarang(JTable jtable){
         
@@ -34,7 +38,6 @@ public class display {
                 String harga_Jual = String.valueOf(rs.getInt("harga_jual"));
                 String harga_Beli = String.valueOf(rs.getInt("harga_beli"));
                 String tbData[] = {id,nama_Produk,kategori,harga_Jual,harga_Beli};
-                
                 tblModel.addRow(tbData);
             }
             
@@ -133,7 +136,6 @@ public class display {
     
     
     public void update_Barang(String id, String hargaJ, String jumlahB){
-        
         try{
             int idB = Integer.parseInt(id);
             int hargaJual = Integer.parseInt(hargaJ);
@@ -142,30 +144,119 @@ public class display {
             String sql = "UPDATE data_barang SET harga_jual = "+hargaJual+",harga_beli ="+hargaBeli+" WHERE id_barang ='"+idB+"'";
             stmt.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"item sudah diupdate");
-        }catch(SQLException sqle){
+        } catch(SQLException sqle){
             System.out.println(sqle);
             JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
         }
     }
     
-    public void cashier_login(String username,String password) {
+    public boolean cashier_login(String username,String password) {
+ 
         try {
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
             String sql = "SELECT * FROM cashier WHERE username ='"+username+"' AND password='"+password+"'";
             ResultSet rs = stmt.executeQuery(sql);
-            if(rs.next()){
-//                System.out.println("ini rs.next+rs.next());
-                if(username.equals(rs.getString("username")) && password.equals(rs.getString("password"))){
-                    id_cashier = rs.getInt("id");
+            if (rs.next()){
+                if (username.equals(rs.getString("username")) && password.equals(rs.getString("password"))){
+//                    id_cashier = rs.getInt("id");
+//                    System.out.println("id cashier display : "+id_cashier);
+                    Cashier cashier_info = new Cashier(rs.getString("id"), rs.getString("username"), rs.getString("password"), rs.getString("nama"), rs.getString("kode"));
+                    Frame_Cashier_Menu cm = new Frame_Cashier_Menu(cashier_info);
                     JOptionPane.showMessageDialog(null,"Login Berhasil");
-//                    new GUI.Frame_Cashier_Menu().setVisible(false);
+                    cm.setVisible(true);
+                    return true;
                 }
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(null,"Username atau Passsword salah");
+                return false;
             }
         } catch (SQLException sqle) {
             JOptionPane.showMessageDialog(null,sqle.getMessage());
+            return false;
+        }
+        return false;
+    }
+    
+    public void add_customer(String username, String nama, String alamat, String dob) {
+        try {
+            PreparedStatement stmt = kn.getKoneksi().prepareStatement("INSERT INTO customer(username,name,alamat,dob) VALUES (?,?,?,?)");            
+            stmt.setString(1,username);
+            stmt.setString(2,nama);
+            stmt.setString(3, alamat);
+            stmt.setString(4,dob);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Berhasil menambahkan Customer");
+        } catch (SQLException sqle) {
+            System.out.println(sqle.getMessage());
+            JOptionPane.showMessageDialog(null,"Gagal menambahkan Customer");
         }
     }
     
+    public void display_customer(JTable JT) {
+        try{
+            DefaultTableModel tblModel = (DefaultTableModel) JT.getModel();
+            tblModel.setRowCount(0);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "SELECT * FROM customer";
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                String id = String.valueOf(rs.getInt("id"));
+                String username = rs.getString("username");
+                String name = rs.getString("name");
+                String alamat = rs.getString("alamat");
+                String dob = rs.getString("dob");
+                String tbData[] = {id,username,name,alamat,dob};
+                tblModel.addRow(tbData);
+            }
+            
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+        }
+    }
+    
+    public void update_customer(String id, String username,String nama, String alamat, String dob){
+        try {
+            PreparedStatement stmt = kn.getKoneksi().prepareStatement("UPDATE customer set username=?,name=?,alamat=?,dob=? WHERE id=?");   
+            stmt.setString(1,username);
+            stmt.setString(2,nama);
+            stmt.setString(3,alamat);
+            stmt.setString(4,dob);
+            stmt.setString(5,id);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Berhasil mengupdate Customer");
+        } catch (SQLException sqle) {
+            System.out.println(sqle.getMessage());
+            JOptionPane.showMessageDialog(null,"Gagal mengupdate Customer");
+        }
+    }
+    
+    public void delete_customer(int id) {
+        try {
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "DELETE FROM customer WHERE id ='"+id+"'";
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Berhasil menghapus Customer");
+        } catch (SQLException sqle) {
+            System.out.println(sqle.getMessage());
+            JOptionPane.showMessageDialog(null,"Gagal menghapus Customer");
+        }
+    }
+//    public String[] display_cashier_info(int id){
+//        String[] info = new String[2];
+//        try {
+//            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+//            String sql = "SELECT username,kode FROM cashier WHERE id ='"+id+"'";
+//            ResultSet rs = stmt.executeQuery(sql);
+//            String username = rs.getString("username");
+//            String kode = rs.getString("kode");
+//            info[0] = username;
+//            info[1] = kode;
+//            System.out.println("rs : "+rs);
+//            System.out.println("info : "+info);
+//        } catch (SQLException sqle) {
+//            System.out.println(sqle.getMessage());
+//        }
+//        return info;
+//    }  
 }
