@@ -37,5 +37,13 @@ public class Supplier {
         this.telepon = telepon;
     }
     
-    public void displaySupplier(){}
+    public void displaySupplier(){
+        System.out.println("Nama Supplier   :"+this.nama);
+        System.out.println("No. Telepon     :"+this.telepon);
+        System.out.println("Alamat          :"+this.alamat);
+    }
+    
+    public void simpan(){
+        
+    }
 }
