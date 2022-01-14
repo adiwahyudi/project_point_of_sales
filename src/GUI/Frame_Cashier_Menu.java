@@ -49,34 +49,61 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        button_list_member = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         button_trans = new javax.swing.JButton();
-        button_input_barang = new javax.swing.JButton();
-        button_logout = new javax.swing.JButton();
         button_add_member1 = new javax.swing.JButton();
+        button_input_barang = new javax.swing.JButton();
         button_trans1 = new javax.swing.JButton();
+        button_list_member = new javax.swing.JButton();
+        cashier_nama = new javax.swing.JLabel();
         lavel_nama = new javax.swing.JLabel();
         label_kode = new javax.swing.JLabel();
-        cashier_nama = new javax.swing.JLabel();
         cashier_kode = new javax.swing.JLabel();
+        button_logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("MENU");
 
-        button_list_member.setText("List Member");
-        button_list_member.setToolTipText("");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(258, 258, 258)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
 
+        jPanel2.setBackground(new java.awt.Color(41, 54, 53));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        button_trans.setBackground(new java.awt.Color(204, 204, 204));
+        button_trans.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_trans.setForeground(new java.awt.Color(51, 51, 51));
         button_trans.setText("Transaksi");
+        button_trans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_transActionPerformed(evt);
+            }
+        });
 
-        button_input_barang.setText("Input Barang");
-
-        button_logout.setBackground(new java.awt.Color(255, 0, 0));
-        button_logout.setForeground(new java.awt.Color(255, 255, 255));
-        button_logout.setText("LOGOUT");
-
+        button_add_member1.setBackground(new java.awt.Color(204, 204, 204));
+        button_add_member1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_add_member1.setForeground(new java.awt.Color(51, 51, 51));
         button_add_member1.setText("Add Member");
         button_add_member1.setToolTipText("");
         button_add_member1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,83 +112,122 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
             }
         });
 
+        button_input_barang.setBackground(new java.awt.Color(204, 204, 204));
+        button_input_barang.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_input_barang.setForeground(new java.awt.Color(51, 51, 51));
+        button_input_barang.setText("Input Barang");
+        button_input_barang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_input_barangActionPerformed(evt);
+            }
+        });
+
+        button_trans1.setBackground(new java.awt.Color(204, 204, 204));
+        button_trans1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_trans1.setForeground(new java.awt.Color(51, 51, 51));
         button_trans1.setText("History Transaksi");
         button_trans1.setToolTipText("");
 
+        button_list_member.setBackground(new java.awt.Color(204, 204, 204));
+        button_list_member.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        button_list_member.setForeground(new java.awt.Color(51, 51, 51));
+        button_list_member.setText("List Member");
+        button_list_member.setToolTipText("");
+        button_list_member.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_list_memberActionPerformed(evt);
+            }
+        });
+
+        cashier_nama.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        cashier_nama.setForeground(new java.awt.Color(255, 255, 255));
+
+        lavel_nama.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lavel_nama.setForeground(new java.awt.Color(255, 255, 255));
         lavel_nama.setText("Nama");
 
+        label_kode.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        label_kode.setForeground(new java.awt.Color(255, 255, 255));
         label_kode.setText("Kode");
 
-        cashier_nama.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        cashier_kode.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        cashier_kode.setForeground(new java.awt.Color(255, 255, 255));
 
-        cashier_kode.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        button_logout.setBackground(new java.awt.Color(255, 102, 102));
+        button_logout.setText("LOGOUT");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(button_add_member1)
+                        .addGap(44, 44, 44)
+                        .addComponent(button_trans, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(button_input_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(252, 252, 252)
+                        .addComponent(button_logout)))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(label_kode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lavel_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cashier_kode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cashier_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(135, 135, 135))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(button_list_member, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(button_trans1)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_trans, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_input_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_add_member1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_list_member, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_trans1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cashier_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lavel_nama))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_kode)
+                    .addComponent(cashier_kode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(button_logout)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(label_kode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lavel_nama, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
-                        .addGap(158, 158, 158)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cashier_kode, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(cashier_nama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(122, 122, 122)
-                        .addComponent(button_logout))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(551, 551, 551)
-                        .addComponent(button_input_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(button_add_member1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(171, 171, 171)
-                        .addComponent(button_trans, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(button_list_member, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(171, 171, 171)
-                                .addComponent(button_trans1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(387, 387, 387))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(416, 416, 416))))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addGap(95, 95, 95)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_trans, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_input_barang, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_add_member1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_list_member, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_trans1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cashier_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lavel_nama))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cashier_kode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(button_logout)
-                        .addComponent(label_kode)))
-                .addGap(54, 54, 54))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -174,6 +240,27 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         buat_cust.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button_add_member1ActionPerformed
+
+    private void button_input_barangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_input_barangActionPerformed
+        // TODO add your handling code here:
+       Frame_InputDataBarang frame_InputBarang = new Frame_InputDataBarang();
+       frame_InputBarang.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_button_input_barangActionPerformed
+
+    private void button_list_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_list_memberActionPerformed
+        // TODO add your handling code here:
+        Frame_List_Customer frame_listCustomer = new Frame_List_Customer();
+        frame_listCustomer.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_button_list_memberActionPerformed
+
+    private void button_transActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_transActionPerformed
+        // TODO add your handling code here:
+        Frame_Transaksi F_transaksi = new Frame_Transaksi();
+        F_transaksi.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_button_transActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,6 +307,8 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel cashier_kode;
     private javax.swing.JLabel cashier_nama;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel label_kode;
     private javax.swing.JLabel lavel_nama;
     // End of variables declaration//GEN-END:variables

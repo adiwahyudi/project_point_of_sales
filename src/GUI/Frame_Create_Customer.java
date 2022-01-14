@@ -171,7 +171,9 @@ public class Frame_Create_Customer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_backActionPerformed
-        // TODO add your handling code here:
+        Frame_Cashier_Menu Menu = new Frame_Cashier_Menu();
+        this.dispose();
+        Menu.setVisible(true);
     }//GEN-LAST:event_button_backActionPerformed
 
     private void button_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_tambahActionPerformed
