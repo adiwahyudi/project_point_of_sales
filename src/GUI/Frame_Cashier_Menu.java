@@ -91,7 +91,7 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(41, 54, 53));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        button_trans.setBackground(new java.awt.Color(204, 204, 204));
+        button_trans.setBackground(new java.awt.Color(255, 255, 255));
         button_trans.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         button_trans.setForeground(new java.awt.Color(51, 51, 51));
         button_trans.setText("Transaksi");
@@ -101,7 +101,7 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
             }
         });
 
-        button_add_member1.setBackground(new java.awt.Color(204, 204, 204));
+        button_add_member1.setBackground(new java.awt.Color(255, 255, 255));
         button_add_member1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         button_add_member1.setForeground(new java.awt.Color(51, 51, 51));
         button_add_member1.setText("Add Member");
@@ -112,7 +112,7 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
             }
         });
 
-        button_input_barang.setBackground(new java.awt.Color(204, 204, 204));
+        button_input_barang.setBackground(new java.awt.Color(255, 255, 255));
         button_input_barang.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         button_input_barang.setForeground(new java.awt.Color(51, 51, 51));
         button_input_barang.setText("Input Barang");
@@ -122,13 +122,13 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
             }
         });
 
-        button_trans1.setBackground(new java.awt.Color(204, 204, 204));
+        button_trans1.setBackground(new java.awt.Color(255, 255, 255));
         button_trans1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         button_trans1.setForeground(new java.awt.Color(51, 51, 51));
         button_trans1.setText("History Transaksi");
         button_trans1.setToolTipText("");
 
-        button_list_member.setBackground(new java.awt.Color(204, 204, 204));
+        button_list_member.setBackground(new java.awt.Color(255, 255, 255));
         button_list_member.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         button_list_member.setForeground(new java.awt.Color(51, 51, 51));
         button_list_member.setText("List Member");
