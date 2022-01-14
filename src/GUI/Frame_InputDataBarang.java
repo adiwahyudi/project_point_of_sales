@@ -39,13 +39,13 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         inp_namaBarang = new javax.swing.JTextField();
-        inp_kategori = new javax.swing.JTextField();
         inp_hargaJual = new javax.swing.JTextField();
         inp_hargaBeli = new javax.swing.JTextField();
         simpan = new javax.swing.JButton();
         display_Barang = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        kategoriJcombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,7 +90,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(144, 144, 144)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,6 +99,8 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        kategoriJcombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fashion Pria", "Fashion Perempuan", "Elektronik", "Laptop", "Handphone", "Alat Tulis", "Alat Rumah Tangga", "Makanan", "Minuman", " " }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,11 +122,11 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel5))
                             .addGap(26, 26, 26)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(inp_hargaBeli, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(inp_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(inp_namaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(inp_hargaJual, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(inp_hargaBeli, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                                .addComponent(inp_namaBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                                .addComponent(inp_hargaJual, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                                .addComponent(kategoriJcombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,7 +140,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(inp_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kategoriJcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -170,15 +172,10 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
 
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
 
-        Data_Barang input = new Data_Barang();
-        input.setNama_Barang(inp_namaBarang.getText());
-        input.setKategori(inp_kategori.getText());
-        input.setHarga_jual(Integer.parseInt(inp_hargaJual.getText()));
-        input.setHarga_beli(Integer.parseInt(inp_hargaBeli.getText()));
+        Data_Barang input = new Data_Barang(0,inp_namaBarang.getText(),kategoriJcombo.getSelectedItem().toString(),Integer.parseInt(inp_hargaJual.getText()),Integer.parseInt(inp_hargaBeli.getText()));
         input.simpan();
         if(input.isPesan() == true){
             inp_namaBarang.setText("");
-            inp_kategori.setText("");
             inp_hargaJual.setText("");
             inp_hargaBeli.setText("");
         }    
@@ -230,7 +227,6 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
     private javax.swing.JButton display_Barang;
     private javax.swing.JTextField inp_hargaBeli;
     private javax.swing.JTextField inp_hargaJual;
-    private javax.swing.JTextField inp_kategori;
     private javax.swing.JTextField inp_namaBarang;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -239,6 +235,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> kategoriJcombo;
     private javax.swing.JButton simpan;
     // End of variables declaration//GEN-END:variables
 }

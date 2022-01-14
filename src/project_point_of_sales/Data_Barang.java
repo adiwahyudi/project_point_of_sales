@@ -7,17 +7,25 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Data_Barang {
-//    private int id_Barang=1;
+    private int id_Barang;
     private String nama_Barang,kategori;
     private int harga_jual,harga_beli;
     private boolean pesan = false;
     koneksi kn = new koneksi();
     Connection kon = kn.getKoneksi();
 
-//    public int getId_Barang() {
-//        return id_Barang;
-//    }
-
+    public Data_Barang(int id, String nama, String kateg, int hargaJ, int hargaB) {
+        id_Barang = id;
+        nama_Barang = nama;
+        kategori = kateg ;
+        harga_jual = hargaJ;
+        harga_beli = hargaB;
+    }
+    
+    public int getId_Barang() {
+        return id_Barang;
+    }
+    
     public String getNama_Barang() {
         return nama_Barang;
     }

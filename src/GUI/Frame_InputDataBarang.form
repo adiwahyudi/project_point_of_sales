@@ -61,11 +61,11 @@
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="inp_hargaBeli" min="-2" pref="275" max="-2" attributes="0"/>
-                                  <Component id="inp_kategori" min="-2" pref="275" max="-2" attributes="0"/>
-                                  <Component id="inp_namaBarang" min="-2" pref="275" max="-2" attributes="0"/>
-                                  <Component id="inp_hargaJual" alignment="0" min="-2" pref="275" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="inp_hargaBeli" pref="275" max="32767" attributes="0"/>
+                                  <Component id="inp_namaBarang" pref="275" max="32767" attributes="0"/>
+                                  <Component id="inp_hargaJual" alignment="0" pref="275" max="32767" attributes="0"/>
+                                  <Component id="kategoriJcombo" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -86,7 +86,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="inp_kategori" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="kategoriJcombo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -143,8 +143,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="inp_namaBarang">
         </Component>
-        <Component class="javax.swing.JTextField" name="inp_kategori">
-        </Component>
         <Component class="javax.swing.JTextField" name="inp_hargaJual">
         </Component>
         <Component class="javax.swing.JTextField" name="inp_hargaBeli">
@@ -178,7 +176,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="151" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -206,6 +204,27 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JComboBox" name="kategoriJcombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="10">
+                <StringItem index="0" value="Fashion Pria"/>
+                <StringItem index="1" value="Fashion Perempuan"/>
+                <StringItem index="2" value="Elektronik"/>
+                <StringItem index="3" value="Laptop"/>
+                <StringItem index="4" value="Handphone"/>
+                <StringItem index="5" value="Alat Tulis"/>
+                <StringItem index="6" value="Alat Rumah Tangga"/>
+                <StringItem index="7" value="Makanan"/>
+                <StringItem index="8" value="Minuman"/>
+                <StringItem index="9" value=" "/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

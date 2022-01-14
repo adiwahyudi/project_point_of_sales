@@ -10,8 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import project_point_of_sales.koneksi;
-import project_point_of_sales.Cashier;
+import project_point_of_sales.*;
 import java.util.*;
 
 /**
@@ -71,6 +70,54 @@ public class display {
         }
     }
     
+    public void search_IDTable(JTable jtable,String id){
+        
+        try{
+            int idB = Integer.parseInt(id);
+            DefaultTableModel tblModel = (DefaultTableModel) jtable.getModel();
+            tblModel.setRowCount(0);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "Select * FROM data_barang WHERE id_barang ='"+idB+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()){
+                if (id.equals(rs.getString("id_barang"))){
+                    String id2 = String.valueOf(rs.getInt("id_barang"));
+                    String nama_Produk = rs.getString("nama_Barang");
+                    String kategori = rs.getString("kategori");
+                    String harga_Jual = String.valueOf(rs.getInt("harga_jual"));
+                    String tbData[] = {id2,nama_Produk,kategori,harga_Jual};
+                    tblModel.addRow(tbData);
+                }
+            }
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+        }
+    }
+    
+    
+    public Data_Barang search_ID(String id){
+        
+        try{
+            int idB = Integer.parseInt(id);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "Select * FROM data_barang WHERE id_barang ='"+idB+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()){
+                if (id.equals(rs.getString("id_barang"))){
+                    Data_Barang info = new Data_Barang(rs.getInt("id_barang"),rs.getString("nama_Barang"),rs.getString("kategori"),rs.getInt("harga_jual"),rs.getInt("harga_beli"));
+                    return info;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null,"Item tidak tersedia");
+                return null;
+            }
+            
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+        }
+        return null;
+    }
+    
     public void add_Keranjang(String id, String nama,String kategori, String hargaJ, String jumlahB){
         
         try{
@@ -81,10 +128,9 @@ public class display {
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
             String sql = "INSERT INTO data_detailbelanja VALUES ('"+idB+"','"+nama+"','"+kategori+"',"+hargaJual+","+jumlah+","+total+")";
             stmt.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
         }catch(SQLException sqle){
             System.out.println(sqle);
-            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
+            JOptionPane.showMessageDialog(null,"gagal memasukkan item");
         }
     }
     
