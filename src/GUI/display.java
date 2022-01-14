@@ -242,6 +242,23 @@ public class display {
             JOptionPane.showMessageDialog(null,"Gagal menghapus Customer");
         }
     }
+    
+    public String get_id_trans_now(){
+        String id = null;
+        try{
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "SELECT COUNT(id) FROM cashier";
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                int int_id = rs.getInt("COUNT(id)") + 1;
+                id = String.valueOf(int_id);
+            }
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        return id;
+    }
+    
 //    public String[] display_cashier_info(int id){
 //        String[] info = new String[2];
 //        try {
