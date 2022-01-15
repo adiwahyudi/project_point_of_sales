@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package GUI;
-
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import project_point_of_sales.Supplier;
 /**
  *
  * @author acer
@@ -14,8 +16,12 @@ public class Frame_Supplier extends javax.swing.JFrame {
     /**
      * Creates new form Frame_Supplier
      */
+    display dis = new display();
     public Frame_Supplier() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -27,6 +33,9 @@ public class Frame_Supplier extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabel_sup = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -38,6 +47,36 @@ public class Frame_Supplier extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         alamat = new javax.swing.JTextArea();
         simpan = new javax.swing.JButton();
+        disp_sup = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 190, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        tabel_sup.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nama", "No. HP", "Alamat"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tabel_sup);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 102));
@@ -56,16 +95,16 @@ public class Frame_Supplier extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(169, 169, 169)
+                .addGap(180, 180, 180)
                 .addComponent(jLabel1)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 102));
@@ -89,7 +128,19 @@ public class Frame_Supplier extends javax.swing.JFrame {
         alamat.setRows(5);
         jScrollPane1.setViewportView(alamat);
 
-        simpan.setText("Simpan");
+        simpan.setText("Tambah");
+        simpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpanActionPerformed(evt);
+            }
+        });
+
+        disp_sup.setText("Lihat List Supplier");
+        disp_sup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disp_supActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -110,11 +161,13 @@ public class Frame_Supplier extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(31, 31, 31)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(122, Short.MAX_VALUE)
+                .addComponent(disp_sup)
+                .addGap(83, 83, 83)
                 .addComponent(simpan)
-                .addGap(222, 222, 222))
+                .addGap(69, 69, 69))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,12 +184,14 @@ public class Frame_Supplier extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(39, 143, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(simpan)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(disp_sup)
+                            .addComponent(simpan))
+                        .addGap(0, 30, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,8 +205,9 @@ public class Frame_Supplier extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,6 +216,34 @@ public class Frame_Supplier extends javax.swing.JFrame {
     private void nohpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nohpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nohpActionPerformed
+
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
+        Supplier input = new Supplier();
+        input.setNama(nama.getText());
+        input.setTelepon(nohp.getText());
+        input.setAlamat(alamat.getText());
+        input.simpan();
+        if(input.isPesan() == true){
+            nama.setText("");
+            nohp.setText("");
+            alamat.setText("");
+        }
+//        DefaultTableModel tblModel = (DefaultTableModel) tab_supplier.getModel();
+//        
+//        String tbl_ID = (String) tblModel.getValueAt(tab_supplier.getSelectedRow(),0);
+//        String tbl_Nama = (String) tblModel.getValueAt(tab_supplier.getSelectedRow(),1);
+//        String tbl_nohp = (String) tblModel.getValueAt(tab_supplier.getSelectedRow(),2);
+//        String tbl_alamat = (String) tblModel.getValueAt(tab_supplier.getSelectedRow(),3);
+//        nama.setText(tbl_Nama);
+//        nohp.setText(tbl_nohp);   
+//        alamat.setText(tbl_alamat);
+    }//GEN-LAST:event_simpanActionPerformed
+
+    private void disp_supActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disp_supActionPerformed
+        // TODO add your handling code here:
+        Frame_list_supplier frame = new Frame_list_supplier();
+        frame.setVisible(true);
+    }//GEN-LAST:event_disp_supActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,15 +282,19 @@ public class Frame_Supplier extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea alamat;
+    private javax.swing.JButton disp_sup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField nohp;
     private javax.swing.JButton simpan;
+    private javax.swing.JTable tabel_sup;
     // End of variables declaration//GEN-END:variables
 }
