@@ -22,7 +22,7 @@ public class Frame_DataBarang extends javax.swing.JFrame {
     public Frame_DataBarang() {
         initComponents();
         this.setLocationRelativeTo(null);
-//        dis.Display_dataBarang(tab_dataBarang1);
+        dis.Display_dataBarang(tab_dataBarang1);
         tab_dataBarang1.getTableHeader().setOpaque(false);
         tab_dataBarang1.getTableHeader().setBackground(new Color(110, 217, 161));
         inp_id.setEnabled(false);
