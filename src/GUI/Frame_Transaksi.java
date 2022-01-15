@@ -258,9 +258,11 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
 
     inp_jumlah.setBorder(null);
 
-    inp_kategori2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-
-    inp_id2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+    inp_kategori.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            inp_kategoriActionPerformed(evt);
+        }
+    });
 
     jLabel36.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel36.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,10 +271,6 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
     jLabel37.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel37.setForeground(new java.awt.Color(255, 255, 255));
     jLabel37.setText("Nama Barang");
-
-    inp_namaBarang2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-
-    inp_hargaJual2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
     jLabel35.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel35.setForeground(new java.awt.Color(255, 255, 255));
@@ -299,8 +297,6 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
     jLabel33.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel33.setForeground(new java.awt.Color(255, 255, 255));
     jLabel33.setText("Jumlah Barang");
-
-    total.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
     Search.setText("Cari ID Barang");
     Search.addActionListener(new java.awt.event.ActionListener() {
@@ -651,13 +647,12 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
 
     private void add_keranjangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_keranjangActionPerformed
         // TODO add your handling code here:
-        id_trans = "2";
-        if(add_keranjang.getText() == "Tambah ke keranjang"){
+        if("Tambah ke keranjang".equals(add_keranjang.getText())){
 //            dis.add_Keranjang(inp_id2.getText(), inp_namaBarang2.getText(), inp_kategori2.getText(),inp_hargaJual2.getText(),inp_jumlah2.getText());
             dis.add_Keranjang(id_trans,inp_id.getText(),inp_namaBarang.getText(), inp_kategori.getText(), inp_hargaJual.getText(),inp_jumlah.getText());
             dis.Display_detailBelanja(tab_detailBelanja,id_trans);
             total.setText(Integer.toString(getSumHarga()));
-        }else if (add_keranjang.getText() == "Update keranjang"){
+        }else if ("Update keranjang".equals(add_keranjang.getText())){
             dis.update_Keranjang(inp_id.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
             dis.Display_detailBelanja(tab_detailBelanja,id_trans);
             total.setText(Integer.toString(getSumHarga()));
@@ -719,6 +714,10 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
     private void tf_payment_prop_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_payment_prop_3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_payment_prop_3ActionPerformed
+
+    private void inp_kategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inp_kategoriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inp_kategoriActionPerformed
 
     /**
      * @param args the command line arguments
