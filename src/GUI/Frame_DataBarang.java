@@ -118,6 +118,12 @@ public class Frame_DataBarang extends javax.swing.JFrame {
     jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel3.setText("ID Barang");
     jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+    inp_id.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            inp_idActionPerformed(evt);
+        }
+    });
     jPanel3.add(inp_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 131, -1));
     jPanel3.add(inp_namaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 131, -1));
 
@@ -205,6 +211,10 @@ public class Frame_DataBarang extends javax.swing.JFrame {
         inp_kategori.setText("");
         inp_hargaJual.setText("");
     }//GEN-LAST:event_deleteActionPerformed
+
+    private void inp_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inp_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inp_idActionPerformed
 
     /**
      * @param args the command line arguments

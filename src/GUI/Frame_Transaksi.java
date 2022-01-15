@@ -258,6 +258,10 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
 
     inp_jumlah.setBorder(null);
 
+    inp_kategori2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+    inp_id2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
     jLabel36.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel36.setForeground(new java.awt.Color(255, 255, 255));
     jLabel36.setText("ID Barang");
@@ -265,6 +269,10 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
     jLabel37.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel37.setForeground(new java.awt.Color(255, 255, 255));
     jLabel37.setText("Nama Barang");
+
+    inp_namaBarang2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
+    inp_hargaJual2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
     jLabel35.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel35.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,6 +299,8 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
     jLabel33.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
     jLabel33.setForeground(new java.awt.Color(255, 255, 255));
     jLabel33.setText("Jumlah Barang");
+
+    total.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
     Search.setText("Cari ID Barang");
     Search.addActionListener(new java.awt.event.ActionListener() {

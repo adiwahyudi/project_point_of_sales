@@ -27,16 +27,26 @@ public class Frame_Awal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         label_selamat_datang = new javax.swing.JLabel();
-        button_login_cashier = new javax.swing.JButton();
         label_masuk_sebagai = new javax.swing.JLabel();
+        button_login_cashier = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(41, 54, 53));
+
         label_selamat_datang.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        label_selamat_datang.setForeground(new java.awt.Color(255, 255, 255));
         label_selamat_datang.setText("Selamat Datang");
 
+        label_masuk_sebagai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        label_masuk_sebagai.setForeground(new java.awt.Color(255, 255, 255));
+        label_masuk_sebagai.setText("Masuk Sebagai");
+
+        button_login_cashier.setBackground(new java.awt.Color(204, 204, 204));
         button_login_cashier.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        button_login_cashier.setForeground(new java.awt.Color(51, 51, 51));
         button_login_cashier.setText("Cashier");
         button_login_cashier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,36 +54,46 @@ public class Frame_Awal extends javax.swing.JFrame {
             }
         });
 
-        label_masuk_sebagai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        label_masuk_sebagai.setText("Masuk Sebagai");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_selamat_datang, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(button_login_cashier, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(125, 125, 125))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(label_masuk_sebagai)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(210, 210, 210))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
                 .addComponent(label_selamat_datang)
                 .addGap(38, 38, 38)
                 .addComponent(label_masuk_sebagai)
                 .addGap(35, 35, 35)
                 .addComponent(button_login_cashier, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -123,6 +143,7 @@ public class Frame_Awal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_login_cashier;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_masuk_sebagai;
     private javax.swing.JLabel label_selamat_datang;
     // End of variables declaration//GEN-END:variables

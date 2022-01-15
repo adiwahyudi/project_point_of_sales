@@ -45,6 +45,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
         display_Barang = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        back_button = new javax.swing.JButton();
         kategoriJcombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,20 +84,34 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Input Data Barang");
 
+        back_button.setText("<- Back");
+        back_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(back_button)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel1)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(back_button))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -188,6 +203,13 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_display_BarangActionPerformed
 
+    private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
+        // TODO add your handling code here:
+        Frame_Cashier_Menu Menu = new Frame_Cashier_Menu();
+        this.dispose();
+        Menu.setVisible(true);
+    }//GEN-LAST:event_back_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -224,6 +246,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back_button;
     private javax.swing.JButton display_Barang;
     private javax.swing.JTextField inp_hargaBeli;
     private javax.swing.JTextField inp_hargaJual;

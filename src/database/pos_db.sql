@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2022 at 12:00 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Jan 15, 2022 at 04:44 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -64,7 +63,7 @@ CREATE TABLE `data_barang` (
 INSERT INTO `data_barang` (`id_barang`, `nama_Barang`, `kategori`, `harga_jual`, `harga_beli`) VALUES
 (1, 'cheetos', 'makanan', 10000, 5000),
 (2, 'Rinso', 'Alat', 15000, 10000),
-(4, 'Aqua pack', 'Minuman', 10000, 6000);
+(5, 'Aqua Pack', 'Makanan', 10000, 6000);
 
 -- --------------------------------------------------------
 
@@ -90,6 +89,27 @@ INSERT INTO `data_detailbelanja` (`id_barang`, `nama_Barang`, `kategori`, `Harga
 (3, 'Roll', 'Makanan', 5000, 2, 10000),
 (4, 'Aqua pack', 'Minuman', 10000, 4, 40000);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `id_supplier` int(10) NOT NULL,
+  `nama_supplier` varchar(60) DEFAULT NULL,
+  `no_telp` varchar(20) DEFAULT NULL,
+  `alamat_supplier` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `no_telp`, `alamat_supplier`) VALUES
+(1, 'Indofood', '0855234567', 'Jakarta'),
+(2, 'Unilever', '021873567', 'Jakarta selatan');
+
 --
 -- Indexes for dumped tables
 --
@@ -113,6 +133,12 @@ ALTER TABLE `data_detailbelanja`
   ADD PRIMARY KEY (`id_barang`);
 
 --
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`id_supplier`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -126,13 +152,19 @@ ALTER TABLE `cashier`
 -- AUTO_INCREMENT for table `data_barang`
 --
 ALTER TABLE `data_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `data_detailbelanja`
 --
 ALTER TABLE `data_detailbelanja`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `id_supplier` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

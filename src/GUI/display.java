@@ -323,6 +323,7 @@ public class display {
         }
     }
     
+
     public String get_id_trans_now(){
         String id = null;
         try{
@@ -338,6 +339,56 @@ public class display {
         }
         return id;
     }
+
+public void update_supplier(String id, String nama, String nohp, String alamat){
+        try{
+            int idB = Integer.parseInt(id);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "UPDATE data_barang SET nama_supplier = '"+nama+"',no_telp ='"+nohp+"',alamat_supplier='"+alamat+"' WHERE id_supplier ='"+idB+"'";
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"item sudah diupdate");
+        } catch(SQLException sqle){
+            System.out.println(sqle);
+            JOptionPane.showMessageDialog(null,"item sudah dimasukkan");
+        }
+    }
+    
+    public void delete_supplier(String id){
+        try {
+            int idB = Integer.parseInt(id);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "DELETE FROM supplier WHERE id_supplier ='"+idB+"'";
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Berhasil menghapus Supplier");
+        } catch (SQLException sqle) {
+            System.out.println(sqle.getMessage());
+            JOptionPane.showMessageDialog(null,"Gagal menghapus Supplier");
+        }        
+    }
+    
+    public void display_supplier(JTable JTab){
+        try{
+            DefaultTableModel tblModel = (DefaultTableModel) JTab.getModel();
+            tblModel.setRowCount(0);
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "SELECT * FROM supplier";
+            ResultSet rs = stmt.executeQuery(sql);            
+            while(rs.next()){
+                String id = String.valueOf(rs.getInt("id_supplier"));
+                String nama = rs.getString("nama_supplier");
+                String nohp = rs.getString("no_telp");                
+                String alamat = rs.getString("alamat_supplier");
+                String tbData[] = {id,nama,nohp,alamat};
+                tblModel.addRow(tbData);
+            }
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+        }
+        
+    }
+    
+
+      
     
     public void create_transaction(String id_cashier,String id_customer,int total,String waktu,String pembayaran){
         try {
