@@ -22,7 +22,7 @@ public class Frame_DataBarang extends javax.swing.JFrame {
     public Frame_DataBarang() {
         initComponents();
         this.setLocationRelativeTo(null);
-        dis.Display_dataBarang(tab_dataBarang1);
+//        dis.Display_dataBarang(tab_dataBarang1);
         tab_dataBarang1.getTableHeader().setOpaque(false);
         tab_dataBarang1.getTableHeader().setBackground(new Color(110, 217, 161));
         inp_id.setEnabled(false);
@@ -183,7 +183,7 @@ public class Frame_DataBarang extends javax.swing.JFrame {
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
         dis.update_Barang(inp_id.getText(), inp_hargaJual.getText(), inp_hargaBeli.getText());
-        dis.Display_dataBarang(tab_dataBarang1);
+//        dis.Display_dataBarang(tab_dataBarang1);
     }//GEN-LAST:event_UpdateActionPerformed
 
     private void tab_dataBarang1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_dataBarang1MouseClicked
@@ -205,7 +205,7 @@ public class Frame_DataBarang extends javax.swing.JFrame {
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
         dis.delete_Barang(inp_id.getText());
-        dis.Display_detailBelanja(tab_dataBarang1);
+//        dis.Display_detailBelanja(tab_dataBarang1);
         inp_id.setText("");
         inp_namaBarang.setText("");
         inp_kategori.setText("");

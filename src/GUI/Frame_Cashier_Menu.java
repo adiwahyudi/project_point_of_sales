@@ -19,10 +19,6 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
 
     public Frame_Cashier_Menu() {
         initComponents();
-        try {
-            
-        } catch (Exception e) {
-        }
     }
     
     public Frame_Cashier_Menu(Cashier cashier_info) {
@@ -32,13 +28,6 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         cashier_kode.setText(cashier_info.getKode());
     }
 
-    public Cashier getCashier_info() {
-        return cashier_info;
-    }
-
-    public void setCashier_info(Cashier cashier_info) {
-        this.cashier_info = cashier_info;
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,22 +60,12 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("MENU");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        button_trans.setText("Transaksi");
+        button_trans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_transActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(41, 54, 53));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,25 +220,13 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_button_add_member1ActionPerformed
 
-    private void button_input_barangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_input_barangActionPerformed
-        // TODO add your handling code here:
-       Frame_InputDataBarang frame_InputBarang = new Frame_InputDataBarang();
-       frame_InputBarang.setVisible(true);
-       this.dispose();
-    }//GEN-LAST:event_button_input_barangActionPerformed
-
-    private void button_list_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_list_memberActionPerformed
-        // TODO add your handling code here:
-        Frame_List_Customer frame_listCustomer = new Frame_List_Customer();
-        frame_listCustomer.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_button_list_memberActionPerformed
 
     private void button_transActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_transActionPerformed
         // TODO add your handling code here:
-        Frame_Transaksi F_transaksi = new Frame_Transaksi();
-        F_transaksi.setVisible(true);
+        new Frame_Transaksi(cashier_info).setVisible(true);
         this.dispose();
+        
+
     }//GEN-LAST:event_button_transActionPerformed
 
     /**

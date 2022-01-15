@@ -45,13 +45,13 @@ public class display {
         }
     }
     
-    public void Display_detailBelanja(JTable jtable){
+    public void Display_detailBelanja(JTable jtable,String id_transaksi){
         
         try{
             DefaultTableModel tblModel = (DefaultTableModel) jtable.getModel();
             tblModel.setRowCount(0);
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
-            String sql = "Select * FROM data_detailbelanja";
+            String sql = "SELECT * FROM data_detailbelanja WHERE id_transaksi='"+id_transaksi+"'";
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
                 String id = String.valueOf(rs.getInt("id_barang"));
@@ -118,19 +118,53 @@ public class display {
         return null;
     }
     
-    public void add_Keranjang(String id, String nama,String kategori, String hargaJ, String jumlahB){
-        
-        try{
-            int idB = Integer.parseInt(id);
-            int hargaJual = Integer.parseInt(hargaJ);
-            int jumlah = Integer.parseInt(jumlahB);
+//    public void add_Keranjang(String id, String nama,String kategori, String hargaJ, String jumlahB){
+//        
+////        try{
+////            int idB = Integer.parseInt(id);
+////            int hargaJual = Integer.parseInt(hargaJ);
+////            int jumlah = Integer.parseInt(jumlahB);
+////            int total = hargaJual*jumlah;
+////            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+////            String sql = "INSERT INTO data_detailbelanja VALUES ('"+idB+"','"+nama+"','"+kategori+"',"+hargaJual+","+jumlah+","+total+")";
+////            stmt.executeUpdate(sql);
+////        }catch(SQLException sqle){
+////            System.out.println(sqle);
+////            JOptionPane.showMessageDialog(null,"gagal memasukkan item");
+////        }
+//        try {
+//            PreparedStatement stmt = kn.getKoneksi().prepareStatement("INSERT INTO transaksi(id_cashier,id_customer,total,waktu,pembayaran) VALUES (?,?,?,?,?)");            
+//            stmt.setString(1,id_cashier);
+//            stmt.setString(2,id_customer);
+//            stmt.setInt(3, total);
+//            stmt.setString(4,waktu);
+//            stmt.setString(5, pembayaran);
+//            stmt.executeUpdate();
+//            JOptionPane.showMessageDialog(null,"Transaksi Sukses");
+//        } catch (SQLException sqle) {
+//            System.out.println(sqle.getMessage());
+//            JOptionPane.showMessageDialog(null,"Transaksi Gagal");
+//        }
+//    }
+    
+    public void add_Keranjang(String id_transaksi,String id_barang,String nama_barang,String kategori,String harga_jual,String jumlah_item) {
+        try {
+            PreparedStatement stmt = kn.getKoneksi().prepareStatement("INSERT INTO data_detailbelanja(id_transaksi,id_barang,nama_barang,kategori,harga_jual,jumlah_item,harga_Total) VALUES (?,?,?,?,?,?,?)");            
+            stmt.setString(1,id_transaksi);
+            stmt.setString(2,id_barang);
+            stmt.setString(3, nama_barang);
+            stmt.setString(4,kategori);
+            stmt.setString(5, harga_jual);
+            int hargaJual = Integer.parseInt(harga_jual);
+            int jumlah = Integer.parseInt(jumlah_item);
             int total = hargaJual*jumlah;
-            Statement stmt = (Statement) kn.getKoneksi().createStatement();
-            String sql = "INSERT INTO data_detailbelanja VALUES ('"+idB+"','"+nama+"','"+kategori+"',"+hargaJual+","+jumlah+","+total+")";
-            stmt.executeUpdate(sql);
-        }catch(SQLException sqle){
-            System.out.println(sqle);
-            JOptionPane.showMessageDialog(null,"gagal memasukkan item");
+            stmt.setString(6, jumlah_item);
+            stmt.setInt(7, total);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Keranjang berhasil di tambah");
+        } catch (SQLException sqle) {
+            System.out.println(sqle.getMessage());
+            JOptionPane.showMessageDialog(null,"Keranjang gagal di tambah");
         }
     }
     
@@ -294,7 +328,7 @@ public class display {
         String id = null;
         try{
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
-            String sql = "SELECT COUNT(id) FROM cashier";
+            String sql = "SELECT COUNT(id) FROM transaksi";
             ResultSet rs = stmt.executeQuery(sql);
             if(rs.next()){
                 int int_id = rs.getInt("COUNT(id)") + 1;
@@ -355,6 +389,22 @@ public void update_supplier(String id, String nama, String nohp, String alamat){
     
 
       
+    
+    public void create_transaction(String id_cashier,String id_customer,int total,String waktu,String pembayaran){
+        try {
+            PreparedStatement stmt = kn.getKoneksi().prepareStatement("INSERT INTO transaksi(id_cashier,id_customer,total,waktu,pembayaran) VALUES (?,?,?,?,?)");            
+            stmt.setString(1,id_cashier);
+            stmt.setString(2,id_customer);
+            stmt.setInt(3, total);
+            stmt.setString(4,waktu);
+            stmt.setString(5, pembayaran);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Transaksi Sukses");
+        } catch (SQLException sqle) {
+            System.out.println(sqle.getMessage());
+            JOptionPane.showMessageDialog(null,"Transaksi Gagal");
+        }
+    }
     
 //    public String[] display_cashier_info(int id){
 //        String[] info = new String[2];
