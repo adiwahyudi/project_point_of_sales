@@ -29,7 +29,7 @@ public class Frame_DetailBelanja extends javax.swing.JFrame {
         dis.Display_dataBarang(tab_dataBarang);
         tab_dataBarang.getTableHeader().setOpaque(false);
         tab_dataBarang.getTableHeader().setBackground(new Color(110, 217, 161));
-        dis.Display_detailBelanja(tab_detailBelanja);
+//        dis.Display_detailBelanja(tab_detailBelanja);
         tab_detailBelanja.getTableHeader().setOpaque(false);
         tab_detailBelanja.getTableHeader().setBackground(new Color(110, 217, 161));
         Tsum.setText(Integer.toString(getSumHarga()));
@@ -303,12 +303,12 @@ public class Frame_DetailBelanja extends javax.swing.JFrame {
     private void add_keranjangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_keranjangActionPerformed
         // TODO add your handling code here:
         if(add_keranjang.getText() == "Tambah ke keranjang"){
-            dis.add_Keranjang(inp_id.getText(), inp_namaBarang.getText(), inp_kategori.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
-            dis.Display_detailBelanja(tab_detailBelanja);
+//            dis.add_Keranjang(inp_id.getText(), inp_namaBarang.getText(), inp_kategori.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
+//            dis.Display_detailBelanja(tab_detailBelanja);
             Tsum.setText(Integer.toString(getSumHarga()));
         }else if (add_keranjang.getText() == "Update keranjang"){
-            dis.update_Keranjang(inp_id.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
-            dis.Display_detailBelanja(tab_detailBelanja);
+//            dis.update_Keranjang(inp_id.getText(),inp_hargaJual.getText(),inp_jumlah.getText());
+//            dis.Display_detailBelanja(tab_detailBelanja);
             Tsum.setText(Integer.toString(getSumHarga()));
         }
         
@@ -355,7 +355,7 @@ public class Frame_DetailBelanja extends javax.swing.JFrame {
     private void delete_keranjangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_keranjangActionPerformed
         // TODO add your handling code here:
         dis.delete_Keranjang(inp_id.getText());
-        dis.Display_detailBelanja(tab_detailBelanja);
+//        dis.Display_detailBelanja(tab_detailBelanja);
         Tsum.setText(Integer.toString(getSumHarga()));
     }//GEN-LAST:event_delete_keranjangActionPerformed
 

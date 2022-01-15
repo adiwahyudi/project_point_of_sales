@@ -19,10 +19,6 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
 
     public Frame_Cashier_Menu() {
         initComponents();
-        try {
-            
-        } catch (Exception e) {
-        }
     }
     
     public Frame_Cashier_Menu(Cashier cashier_info) {
@@ -32,13 +28,6 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         cashier_kode.setText(cashier_info.getKode());
     }
 
-    public Cashier getCashier_info() {
-        return cashier_info;
-    }
-
-    public void setCashier_info(Cashier cashier_info) {
-        this.cashier_info = cashier_info;
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +59,11 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         button_list_member.setToolTipText("");
 
         button_trans.setText("Transaksi");
+        button_trans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_transActionPerformed(evt);
+            }
+        });
 
         button_input_barang.setText("Input Barang");
 
@@ -174,6 +168,13 @@ public class Frame_Cashier_Menu extends javax.swing.JFrame {
         buat_cust.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_button_add_member1ActionPerformed
+
+    private void button_transActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_transActionPerformed
+        // TODO add your handling code here:
+        new Frame_Transaksi(cashier_info).setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_button_transActionPerformed
 
     /**
      * @param args the command line arguments
