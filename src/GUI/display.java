@@ -289,6 +289,7 @@ public class display {
         }
     }
     
+
     public String get_id_trans_now(){
         String id = null;
         try{
@@ -304,6 +305,11 @@ public class display {
         }
         return id;
     }
+
+
+    
+
+      
     
 //    public String[] display_cashier_info(int id){
 //        String[] info = new String[2];

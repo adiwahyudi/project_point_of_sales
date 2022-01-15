@@ -1,14 +1,27 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< Updated upstream
 -- Generation Time: Jan 14, 2022 at 07:35 PM
+=======
+<<<<<<< Updated upstream
+-- Generation Time: Jan 05, 2022 at 12:00 PM
+=======
+<<<<<<< Updated upstream
+-- Generation Time: Jan 14, 2022 at 07:35 PM
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
+=======
+-- Generation Time: Jan 14, 2022 at 02:20 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
+>>>>>>> Stashed changes
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -134,6 +147,26 @@ CREATE TABLE `transaksi` (
   `pembayaran` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `id_supplier` int(10) NOT NULL,
+  `nama_supplier` varchar(60) DEFAULT NULL,
+  `no_telp` varchar(20) DEFAULT NULL,
+  `alamat_supplier` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `no_telp`, `alamat_supplier`) VALUES
+(1, 'Indofood', '0855234567', 'Jakarta');
+
 --
 -- Indexes for dumped tables
 --
@@ -169,6 +202,12 @@ ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`id_supplier`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -193,8 +232,28 @@ ALTER TABLE `data_barang`
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
+<<<<<<< Updated upstream
 ALTER TABLE `transaksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+=======
+
+ALTER TABLE `data_detailbelanja`
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+
+ALTER TABLE `transaksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `data_detailbelanja`
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `id_supplier` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+>>>>>>> Stashed changes
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
