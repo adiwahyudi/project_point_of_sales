@@ -7,6 +7,7 @@ package GUI;
 
 import java.awt.event.*;
 import javax.swing.JFrame;
+import project_point_of_sales.Cashier;
 import project_point_of_sales.Data_Barang;
 
 /**
@@ -18,8 +19,14 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
     /**
      * Creates new form Frame_InputDataBarang
      */
+    public Cashier cashier_info;
     public Frame_InputDataBarang() {
         initComponents();
+
+    }
+    public Frame_InputDataBarang(Cashier cashier_info) {
+        initComponents();
+        this.cashier_info = cashier_info;
         this.setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
@@ -205,7 +212,7 @@ public class Frame_InputDataBarang extends javax.swing.JFrame {
 
     private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
         // TODO add your handling code here:
-        Frame_Cashier_Menu Menu = new Frame_Cashier_Menu();
+        Frame_Cashier_Menu Menu = new Frame_Cashier_Menu(cashier_info);
         this.dispose();
         Menu.setVisible(true);
     }//GEN-LAST:event_back_buttonActionPerformed

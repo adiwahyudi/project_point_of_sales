@@ -6,6 +6,7 @@
 package GUI;
 
 import javax.swing.table.DefaultTableModel;
+import project_point_of_sales.Cashier;
 
 /**
  *
@@ -17,9 +18,19 @@ public class Frame_List_Customer extends javax.swing.JFrame {
      * Creates new form Frame_List_Customer
      */
     display dis = new display();
+    public Cashier cashier_info;
+    public Frame_Cashier_Menu Menu;
     
     public Frame_List_Customer() {
         initComponents();
+//        dis.display_customer(table_list_cust);
+//        tf_id.setEnabled(false);
+    }
+    
+    public Frame_List_Customer(Cashier cashier_info) {
+        this.cashier_info = cashier_info;
+        initComponents();
+        System.out.println("ID : " + cashier_info.getId());
         dis.display_customer(table_list_cust);
         tf_id.setEnabled(false);
     }
@@ -46,12 +57,14 @@ public class Frame_List_Customer extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         button_update = new javax.swing.JButton();
         button_delete = new javax.swing.JButton();
-        tf_dob = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         ta_alamat = new javax.swing.JTextArea();
         tf_nama = new javax.swing.JTextField();
         tf_username = new javax.swing.JTextField();
         tf_id = new javax.swing.JTextField();
+        CB_Tgl = new javax.swing.JComboBox<>();
+        CB_Bln = new javax.swing.JComboBox<>();
+        CB_Thn = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,15 +163,25 @@ public class Frame_List_Customer extends javax.swing.JFrame {
             }
         });
 
-        tf_dob.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_dobActionPerformed(evt);
-            }
-        });
-
         ta_alamat.setColumns(20);
         ta_alamat.setRows(5);
         jScrollPane1.setViewportView(ta_alamat);
+
+        CB_Tgl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        CB_Tgl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_TglActionPerformed(evt);
+            }
+        });
+
+        CB_Bln.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+
+        CB_Thn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021" }));
+        CB_Thn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_ThnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -187,13 +210,18 @@ public class Frame_List_Customer extends javax.swing.JFrame {
                                 .addComponent(tf_id, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(button_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tf_dob, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(CB_Tgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(CB_Bln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                .addComponent(CB_Thn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(16, 16, 16))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(button_update)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,8 +249,11 @@ public class Frame_List_Customer extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tf_dob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(CB_Tgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(CB_Bln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(CB_Thn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel6))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,11 +294,19 @@ public class Frame_List_Customer extends javax.swing.JFrame {
         String tbl_Alamat = (String) tblModel.getValueAt(table_list_cust.getSelectedRow(),3);
         String tbl_DOB = (String) tblModel.getValueAt(table_list_cust.getSelectedRow(),4);
         
+        
         tf_id.setText(tbl_ID);
         tf_username.setText(tbl_Username);
         tf_nama.setText(tbl_Nama);   
         ta_alamat.setText(tbl_Alamat);
-        tf_dob.setText(tbl_DOB);
+        
+//       Get DOB
+        String[] arrayDate = tbl_DOB.split("-");
+        int bulan = Integer.parseInt(arrayDate[1]);
+        int hari = Integer.parseInt(arrayDate[2]);
+        CB_Tgl.setSelectedItem(Integer.toString(hari));
+        CB_Bln.setSelectedItem(Integer.toString(bulan));
+        CB_Thn.setSelectedItem(arrayDate[0]);
     }//GEN-LAST:event_table_list_custMouseClicked
 
     private void button_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_updateActionPerformed
@@ -276,15 +315,11 @@ public class Frame_List_Customer extends javax.swing.JFrame {
         String username = tf_username.getText();
         String nama = tf_nama.getText();
         String alamat = ta_alamat.getText();
-        String dob = tf_dob.getText();
+        String tgl_lahir = CB_Thn.getSelectedItem() + "-" + CB_Bln.getSelectedItem() + "-" + CB_Tgl.getSelectedItem();
         
-        dis.update_customer(id, username, nama, alamat, dob);
+        dis.update_customer(id, username, nama, alamat, tgl_lahir);
         dis.display_customer(table_list_cust);
     }//GEN-LAST:event_button_updateActionPerformed
-
-    private void tf_dobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_dobActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_dobActionPerformed
 
     private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
         // TODO add your handling code here:
@@ -295,11 +330,18 @@ public class Frame_List_Customer extends javax.swing.JFrame {
 
     private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
         // TODO add your handling code here:
-        Frame_Cashier_Menu Menu = new Frame_Cashier_Menu();
+        Frame_Cashier_Menu cm = new Frame_Cashier_Menu(cashier_info);
+        cm.setVisible(true);
         this.dispose();
-        Menu.setVisible(true);
-        
     }//GEN-LAST:event_back_buttonActionPerformed
+
+    private void CB_ThnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ThnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_ThnActionPerformed
+
+    private void CB_TglActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_TglActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_TglActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,6 +379,9 @@ public class Frame_List_Customer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CB_Bln;
+    private javax.swing.JComboBox<String> CB_Tgl;
+    private javax.swing.JComboBox<String> CB_Thn;
     private javax.swing.JButton back_button;
     private javax.swing.JButton button_delete;
     private javax.swing.JButton button_update;
@@ -352,7 +397,6 @@ public class Frame_List_Customer extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea ta_alamat;
     private javax.swing.JTable table_list_cust;
-    private javax.swing.JTextField tf_dob;
     private javax.swing.JTextField tf_id;
     private javax.swing.JTextField tf_nama;
     private javax.swing.JTextField tf_username;

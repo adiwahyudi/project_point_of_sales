@@ -6,7 +6,7 @@
 package GUI;
 
 import java.util.Date;
-
+import project_point_of_sales.Cashier;
 /**
  *
  * @author User
@@ -16,11 +16,17 @@ public class Frame_Create_Customer extends javax.swing.JFrame {
     /**
      * Creates new form Frame_Create_Customer
      */
+    public Cashier cashier_info;
     display dis = new display();
+    
     public Frame_Create_Customer() {
         initComponents();
     }
-
+    
+    public Frame_Create_Customer(Cashier cashier_info) {
+        this.cashier_info = cashier_info;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,6 +119,11 @@ public class Frame_Create_Customer extends javax.swing.JFrame {
         label_dob.setText("Tanggal Lahir");
 
         CB_Tgl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        CB_Tgl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_TglActionPerformed(evt);
+            }
+        });
 
         CB_Bln.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
@@ -206,7 +217,8 @@ public class Frame_Create_Customer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_backActionPerformed
-        Frame_Cashier_Menu Menu = new Frame_Cashier_Menu();
+        
+        Frame_Cashier_Menu Menu = new Frame_Cashier_Menu(cashier_info);
         this.dispose();
         Menu.setVisible(true);
     }//GEN-LAST:event_button_backActionPerformed
@@ -225,6 +237,10 @@ public class Frame_Create_Customer extends javax.swing.JFrame {
     private void CB_ThnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_ThnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CB_ThnActionPerformed
+
+    private void CB_TglActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_TglActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_TglActionPerformed
 
     /**
      * @param args the command line arguments

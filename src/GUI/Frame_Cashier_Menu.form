@@ -111,9 +111,9 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="label_kode" max="32767" attributes="0"/>
-                      <Component id="lavel_nama" alignment="1" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="lavel_nama" pref="49" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -146,14 +146,14 @@
                       <Component id="button_trans1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cashier_nama" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="lavel_nama" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cashier_nama" pref="22" max="32767" attributes="0"/>
+                      <Component id="lavel_nama" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="label_kode" min="-2" max="-2" attributes="0"/>
-                      <Component id="cashier_kode" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cashier_kode" pref="25" max="32767" attributes="0"/>
+                      <Component id="label_kode" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="button_logout" min="-2" max="-2" attributes="0"/>
