@@ -34,15 +34,11 @@ public final class Frame_Invoice extends javax.swing.JFrame {
     koneksi kn = new koneksi();
     Connection kon = kn.getKoneksi();
     
-    public Frame_Invoice() {
-        initComponents();
-    }
-
     public void getDetailBelanja(int id_trans) {
-        String id_baru = String.valueOf(id_trans);
+        System.out.println("id trans getDetail : " + id_trans);
         try {
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
-            String sql = "SELECT data_detailbelanja.id_barang,data_detailbelanja.nama_Barang,data_detailbelanja.Harga_jual,data_detailbelanja.jumlah_item,data_detailbelanja.harga_Total FROM transaksi INNER JOIN data_detailbelanja ON transaksi.id=data_detailbelanja.id_transaksi WHERE data_detailbelanja.id_transaksi='"+id_baru+"'";
+            String sql = "SELECT data_detailbelanja.id_barang,data_detailbelanja.nama_Barang,data_detailbelanja.Harga_jual,data_detailbelanja.jumlah_item,data_detailbelanja.harga_Total FROM transaksi INNER JOIN data_detailbelanja ON transaksi.id=data_detailbelanja.id_transaksi WHERE data_detailbelanja.id_transaksi='"+id_trans+"'";
             ResultSet rs = stmt.executeQuery(sql);
             
             while(rs.next()){
@@ -57,10 +53,17 @@ public final class Frame_Invoice extends javax.swing.JFrame {
         }
     }
     
-    public Frame_Invoice(Transaksi transaksi) {
-        System.out.println("trans id " + transaksi.getId() + " total : " + transaksi.getTotal());
-        getDetailBelanja(transaksi.getId());
+    private Transaksi transaksi;
+    
+    public Frame_Invoice() {
         initComponents();
+    }
+    public Frame_Invoice(Transaksi transaksi) {
+        initComponents();
+        this.transaksi = transaksi;
+        System.out.println("trans id " + transaksi.getId() + " total : " + transaksi.getTotal());
+        int id_trans = transaksi.getId();
+        getDetailBelanja(id_trans);
     }
 
     /**
@@ -76,7 +79,7 @@ public final class Frame_Invoice extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         area = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_back = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,11 +100,11 @@ public final class Frame_Invoice extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("Menu");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_back.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn_back.setText("Back");
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_backActionPerformed(evt);
             }
         });
 
@@ -118,22 +121,19 @@ public final class Frame_Invoice extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(jLabel1)
+                .addGap(205, 206, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(90, 90, 90))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,13 +141,13 @@ public final class Frame_Invoice extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -167,22 +167,35 @@ public final class Frame_Invoice extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        namaBarangList.forEach((data) -> {
-            System.out.println("Barang : " + data);
-        });
-        for (int i = 0 ; i < namaBarangList.size(); i++){
-            System.out.println(namaBarangList.get(i));
-        }
+        this.dispose();
 //        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_backActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
+//        System.out.println("trans id " + transaksi.getId() + " total : " + transaksi.getTotal() + transaksi.getWaktu() + transaksi.getId_cashier());
         area.setText("*****************************************\n");
-        area.setText(area.getText()+"   *                    INVOICE                      *\n");
+        area.setText(area.getText()+"\t\tINVOICE                      \n");
         area.setText(area.getText()+"*****************************************\n");
+        area.setText(area.getText()+ transaksi.getWaktu() + "\n\n");
+        area.setText(area.getText()+"ID Transaksi\t: " +String.valueOf(transaksi.getId() + "\n"));
+        area.setText(area.getText()+"ID Cashier\t: " +String.valueOf(transaksi.getId_cashier()) + "\n");
+        area.setText(area.getText()+"ID Customer\t: " +String.valueOf(transaksi.getId_customer()) + "\n");
+        area.setText(area.getText()+ "--------------------------------------------------");
+        area.setText(area.getText()+"\nDetail Belanja :\n\n");
+        for (int i = 0; i < namaBarangList.size(); i++) {
+            area.setText(area.getText() + namaBarangList.get(i) + "\t" + jumlahBarangList.get(i) + "\t" + "Rp." + hargaBarangList.get(i) + "\t" + "Rp." + hargaTotalList.get(i) + "\n");
+        }
+        area.setText(area.getText()+"\nTotal \t\t\t:" + "Rp."+ String.valueOf(transaksi.getTotal()) + "\n");
+        area.setText(area.getText()+"Tipe Pembayaran :  " +String.valueOf(transaksi.getPembayaran()) + "\n");
+//        area.setText("=======================================================");
+//        area.setText(area.getText() + id_cashier);
+//        area.setText(String.valueOf(transaksi.getId_cashier()));
+//        area.setText(String.valueOf(transaksi.getId_customer()));
+//        area.setText(transaksi.getWaktu());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -222,8 +235,8 @@ public final class Frame_Invoice extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea area;
+    private javax.swing.JButton btn_back;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

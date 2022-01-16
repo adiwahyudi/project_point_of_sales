@@ -389,6 +389,7 @@ public class display {
     
     public void create_transaction(String id_cashier,String id_customer,int total,String waktu,String pembayaran){
         this.cashier_info = cashier_info;
+        int id_baru = Integer.valueOf(get_id_trans_now());
         try {
             PreparedStatement stmt = kn.getKoneksi().prepareStatement("INSERT INTO transaksi(id_cashier,id_customer,total,waktu,pembayaran) VALUES (?,?,?,?,?)");            
             stmt.setString(1,id_cashier);
@@ -398,7 +399,7 @@ public class display {
             stmt.setString(5, pembayaran);
             stmt.executeUpdate();                   
             JOptionPane.showMessageDialog(null,"Transaksi Sukses");
-            Transaksi transaksi = new Transaksi(Integer.valueOf(get_id_trans_now()), Integer.valueOf(id_cashier), Integer.valueOf(id_customer), total, waktu, pembayaran);
+            Transaksi transaksi = new Transaksi(id_baru, Integer.valueOf(id_cashier), Integer.valueOf(id_customer), total, waktu, pembayaran);
             Frame_Invoice invoice = new Frame_Invoice(transaksi);
             invoice.setVisible(true);
             
@@ -408,6 +409,34 @@ public class display {
         }
     }
     
+//    public List<Detail_Belanja> getAllDetail(int id_trans) {
+//        List<Detail_Belanja> detail = new ArrayList<Detail_Belanja>();
+//        String id_baru = String.valueOf(id_trans);
+//        String sql = "SELECT data_detailbelanja.id_barang,data_detailbelanja.nama_Barang,data_detailbelanja.Harga_jual,data_detailbelanja.jumlah_item,data_detailbelanja.harga_Total FROM transaksi INNER JOIN data_detailbelanja ON transaksi.id=data_detailbelanja.id_transaksi WHERE data_detailbelanja.id_transaksi='"+id_baru+"'"";
+//        try {
+//            if (kn.getKoneksi()==null){
+//                return null;
+//            }else{
+//                PreparedStatement statement = kn.getKoneksi().prepareStatement(sql);
+//
+//                ResultSet rs = statement.executeQuery();
+//                while (rs.next()){
+//                    BTS b = new BTS(
+//                            rs.getString(1),
+//                            rs.getString(2),
+//                            rs.getString(3),
+//                            rs.getString(4),
+//                            new Merk_BTS(rs.getInt(5),rs.getString(7))
+//                    );
+//                    bts.add(b);
+//                }
+//                statement.close();
+//            }
+//        } catch (Exception ex) {
+//            Logger.getLogger(BTS.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return bts;
+//    }
     
 //    public String[] display_cashier_info(int id){
 //        String[] info = new String[2];
