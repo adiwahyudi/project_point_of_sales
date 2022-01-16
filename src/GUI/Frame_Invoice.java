@@ -5,20 +5,61 @@
  */
 package GUI;
 
+import java.util.List;
 import java.awt.print.PrinterException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import project_point_of_sales.Transaksi;
+import project_point_of_sales.koneksi;
 /**
  *
  * @author User
  */
-public class Frame_Invoice extends javax.swing.JFrame {
-
+public final class Frame_Invoice extends javax.swing.JFrame {
+    
+    ArrayList<Integer> idBarangList = new ArrayList<>();
+    ArrayList<String> namaBarangList = new ArrayList<>();
+    ArrayList<Integer> hargaBarangList = new ArrayList<>();
+    ArrayList<Integer> jumlahBarangList = new ArrayList<>();
+    ArrayList<Integer> hargaTotalList = new ArrayList<>();
+    
     /**
      * Creates new form Frame_Invoice
      */
+    koneksi kn = new koneksi();
+    Connection kon = kn.getKoneksi();
+    
     public Frame_Invoice() {
+        initComponents();
+    }
+
+    public void getDetailBelanja(int id_trans) {
+        String id_baru = String.valueOf(id_trans);
+        try {
+            Statement stmt = (Statement) kn.getKoneksi().createStatement();
+            String sql = "SELECT data_detailbelanja.id_barang,data_detailbelanja.nama_Barang,data_detailbelanja.Harga_jual,data_detailbelanja.jumlah_item,data_detailbelanja.harga_Total FROM transaksi INNER JOIN data_detailbelanja ON transaksi.id=data_detailbelanja.id_transaksi WHERE data_detailbelanja.id_transaksi='"+id_baru+"'";
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                idBarangList.add(rs.getInt("id_barang"));
+                namaBarangList.add(rs.getString("nama_Barang"));
+                hargaBarangList.add(rs.getInt("Harga_jual"));
+                jumlahBarangList.add(rs.getInt("jumlah_item"));
+                hargaTotalList.add(rs.getInt("harga_Total"));
+            }
+        } catch (SQLException sqle) {
+            System.out.println(sqle);
+        }
+    }
+    
+    public Frame_Invoice(Transaksi transaksi) {
+        System.out.println("trans id " + transaksi.getId() + " total : " + transaksi.getTotal());
+        getDetailBelanja(transaksi.getId());
         initComponents();
     }
 
@@ -82,16 +123,17 @@ public class Frame_Invoice extends javax.swing.JFrame {
                         .addGap(231, 231, 231)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(72, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,6 +151,7 @@ public class Frame_Invoice extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -126,6 +169,13 @@ public class Frame_Invoice extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        namaBarangList.forEach((data) -> {
+            System.out.println("Barang : " + data);
+        });
+        for (int i = 0 ; i < namaBarangList.size(); i++){
+            System.out.println(namaBarangList.get(i));
+        }
+//        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

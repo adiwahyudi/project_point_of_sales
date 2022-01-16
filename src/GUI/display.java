@@ -5,13 +5,15 @@
  */
 package GUI;
 
-import java.awt.List;
+//import java.awt.List;
+import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import project_point_of_sales.*;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +22,7 @@ import java.util.*;
 public class display {
     koneksi kn = new koneksi();
     Connection kon = kn.getKoneksi();
-    
+    Cashier cashier_info;
     
     public void Display_dataBarang(JTable jtable){
         
@@ -96,7 +98,6 @@ public class display {
     
     
     public Data_Barang search_ID(String id){
-        
         try{
             int idB = Integer.parseInt(id);
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
@@ -168,7 +169,7 @@ public class display {
         }
     }
     
-    public void update_Keranjang(String id,String hargaJ, String jumlahB){
+    public void update_Keranjang(String id,String id_trans,String hargaJ, String jumlahB){
         
         try{
             int idB = Integer.parseInt(id);
@@ -176,7 +177,7 @@ public class display {
             int jumlah = Integer.parseInt(jumlahB);
             int total = hargaJual*jumlah;
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
-            String sql = "UPDATE data_detailbelanja SET jumlah_item = "+jumlah+",harga_Total ="+total+" WHERE id_barang ='"+idB+"'";
+            String sql = "UPDATE data_detailbelanja SET jumlah_item = "+jumlah+",harga_Total ="+total+" WHERE id_barang ='"+idB+"' AND id_transaksi='"+id_trans+"'";
             stmt.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"item sudah diupdate");
         }catch(SQLException sqle){
@@ -185,12 +186,12 @@ public class display {
         }
     }
     
-    public void delete_Keranjang(String id){
+    public void delete_Keranjang(String id,String id_trans){
         
         try{
             int idB = Integer.parseInt(id);
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
-            String sql = "DELETE FROM data_detailbelanja WHERE id_barang ='"+idB+"'";
+            String sql = "DELETE FROM data_detailbelanja WHERE id_barang ='"+idB+"' AND id_transaksi='"+id_trans+"'";
             stmt.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"item telah dihapus");
         }catch(SQLException sqle){
@@ -323,7 +324,6 @@ public class display {
         }
     }
     
-
     public String get_id_trans_now(){
         String id = null;
         try{
@@ -340,7 +340,7 @@ public class display {
         return id;
     }
 
-public void update_supplier(String id, String nama, String nohp, String alamat){
+    public void update_supplier(String id, String nama, String nohp, String alamat){
         try{
             int idB = Integer.parseInt(id);
             Statement stmt = (Statement) kn.getKoneksi().createStatement();
@@ -387,10 +387,8 @@ public void update_supplier(String id, String nama, String nohp, String alamat){
         
     }
     
-
-      
-    
     public void create_transaction(String id_cashier,String id_customer,int total,String waktu,String pembayaran){
+        this.cashier_info = cashier_info;
         try {
             PreparedStatement stmt = kn.getKoneksi().prepareStatement("INSERT INTO transaksi(id_cashier,id_customer,total,waktu,pembayaran) VALUES (?,?,?,?,?)");            
             stmt.setString(1,id_cashier);
@@ -398,13 +396,18 @@ public void update_supplier(String id, String nama, String nohp, String alamat){
             stmt.setInt(3, total);
             stmt.setString(4,waktu);
             stmt.setString(5, pembayaran);
-            stmt.executeUpdate();
+            stmt.executeUpdate();                   
             JOptionPane.showMessageDialog(null,"Transaksi Sukses");
+            Transaksi transaksi = new Transaksi(Integer.valueOf(get_id_trans_now()), Integer.valueOf(id_cashier), Integer.valueOf(id_customer), total, waktu, pembayaran);
+            Frame_Invoice invoice = new Frame_Invoice(transaksi);
+            invoice.setVisible(true);
+            
         } catch (SQLException sqle) {
             System.out.println(sqle.getMessage());
             JOptionPane.showMessageDialog(null,"Transaksi Gagal");
         }
     }
+    
     
 //    public String[] display_cashier_info(int id){
 //        String[] info = new String[2];
