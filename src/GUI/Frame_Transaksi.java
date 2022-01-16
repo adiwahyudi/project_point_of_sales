@@ -31,6 +31,7 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
     Transaksi transaksi;
     private Cashier cashier_info;
     private Detail_Belanja detail_belanja;
+    
 //    Cashier cashier;
     public int getSumHarga(){
         int rowsCount = tab_detailBelanja.getRowCount();
@@ -727,10 +728,6 @@ public final class Frame_Transaksi extends javax.swing.JFrame {
         if ("Cash".equals(cb_payment.getSelectedItem().toString())) {
             System.out.println(tf_id_kasir.getText() + tf_id_pelanggan.getText() + getSumHarga() + tf_tanggal.getText() + "Cash");
             dis.create_transaction(tf_id_kasir.getText(), tf_id_pelanggan.getText(), getSumHarga(), tf_tanggal.getText(), "Cash");
-//            List<Detail_Belanja> getDetail = dis.getDetailBelanja(Integer.valueOf(label_id_val.getText()));
-//            System.out.println(detail_belanja.getNama_barang());
-//            getDetail.asList(1,2,3,4).forEach(System.out::println);
-//            System.out.println("Ini Detail : " + getDetail); 
             
         } else if ("Credit".equals(cb_payment.getSelectedItem().toString())) {
             int harga_baru = Integer.valueOf(tf_payment_prop_3.getText());
